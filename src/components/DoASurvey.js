@@ -56,10 +56,44 @@ const DoASurvey = () => {
         console.log(err);
       });
   };
+
+  var survey = new Survey.Model(surveyData);
+
+  survey.onUploadFiles.add(function (survey, options) {
+    var formData = new FormData();
+    options.files.forEach(function (file) {
+      formData.append(file.name, file);
+    });
+
+    formData.append("email", user.email);
+
+    console.log(formData);
+    axios({
+      method: "POST",
+      url: "https://surveyjsbackend.herokuapp.com/uploadFile",
+      data: formData,
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    }).then((res) => {
+      console.log(res.dta);
+      options.callback(
+        "success",
+        options.files.map(function (file, index) {
+          return {
+            file: file,
+            content: res.data[index].url,
+          };
+        })
+      );
+    });
+  });
+
   return (
     <div>
       <Survey.Survey
-        json={surveyData ? surveyData : {}}
+        // json={surveyData ? surveyData : {}}
+        model={survey}
         onComplete={sendDataToServer}
       />
     </div>
