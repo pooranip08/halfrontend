@@ -47,7 +47,7 @@ const DoASurvey = () => {
       .post("https://surveyjsbackend.herokuapp.com/post", {
         surveyResult: survey.data,
         //postId: Buffer.from(surveyname).toString('base64')
-        postId: 1,
+        postId: "e74d23c6-346a-11eb-b968-22000baa8706",
       })
       .then((res) => {
         console.log(res);
