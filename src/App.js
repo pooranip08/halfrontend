@@ -22,7 +22,7 @@ function App() {
         <Switch>
           <PrivateRoute path="/SurveyEx" component={DoASurvey} />
           <PrivateRoute path="/profile" component={Profile} />
-          <PrivateRoute path="/surveysdone" component={SurveysDone}/>
+          
         </Switch>
       </Router>
     </div>
