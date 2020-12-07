@@ -10,21 +10,21 @@ import PrivateRoute from "./components/PrivateRoute";
 import DoASurvey from "./components/DoASurvey";
 import SurveysDone from "./components/SuverysDone";
 
-
 function App() {
   return (
     <div className="App">
       {/* Don't forget to include the history module */}
-      <Router history={history}>
+      <DoASurvey />
+      {/* <Router history={history}>
         <header>
           <NavBar />
         </header>
         <Switch>
           <PrivateRoute path="/SurveyEx" component={DoASurvey} />
           <PrivateRoute path="/profile" component={Profile} />
-          
+          <PrivateRoute path="/surveysdone" component={SurveysDone}/>
         </Switch>
-      </Router>
+      </Router> */}
     </div>
   );
 }

@@ -37,8 +37,8 @@ const DoASurvey = () => {
     setSurveyName(surveyname);
   }
 
-  const { user } = useAuth0();
-  localStorage.setItem("userEmail", user.email);
+  // const { user } = useAuth0();
+  // localStorage.setItem("userEmail", user.email);
 
   const sendDataToServer = (survey) => {
     //send Ajax request to your web server.
@@ -65,9 +65,8 @@ const DoASurvey = () => {
       formData.append(file.name, file);
     });
 
-    formData.append("email", user.email);
+    formData.append("email", "test1");
 
-    console.log(formData);
     axios({
       method: "POST",
       url: "https://surveyjsbackend.herokuapp.com/uploadFile",
