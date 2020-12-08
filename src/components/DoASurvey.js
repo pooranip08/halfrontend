@@ -66,7 +66,7 @@ const DoASurvey = () => {
     });
 
     formData.append("email", "test1");
-
+//added server url
     axios({
       method: "POST",
       url: "https://halscreen-admin.herokuapp.com/uploadFile",
