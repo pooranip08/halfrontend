@@ -26,7 +26,7 @@ const DoASurvey = () => {
   }, []);
 
   async function get_json() {
-    const res = await axios.get("https://surveyjsserver.herokuapp.com/get_que");
+    const res = await axios.get("https://hal-server.herokuapp.com/get_que");
     const x =
       res.data.data && res.data.data[0] && res.data.data[0].json
         ? res.data.data[0].json
@@ -44,7 +44,7 @@ const DoASurvey = () => {
     //send Ajax request to your web server.
     // JSON.stringify(survey.data);
     axios
-      .post("https://surveyjsbackend.herokuapp.com/post", {
+      .post("https://halscreen-admin.herokuapp.com/post", {
         surveyResult: survey.data,
         //postId: Buffer.from(surveyname).toString('base64')
         postId: "e74d23c6-346a-11eb-b968-22000baa8706",
@@ -69,7 +69,7 @@ const DoASurvey = () => {
 
     axios({
       method: "POST",
-      url: "https://surveyjsbackend.herokuapp.com/uploadFile",
+      url: "https://halscreen-admin.herokuapp.com/uploadFile",
       data: formData,
       headers: {
         "Content-Type": "multipart/form-data",

@@ -11,7 +11,7 @@ const SurveysDone = () => {
       let localStorageEmail = localStorage.getItem("userEmail");
       axios
         .get(
-          `https://surveyjsserver.herokuapp.com/${localStorageEmail}/surveys`
+          `https://hal-server.herokuapp.com/${localStorageEmail}/surveys`
         )
         .then((res) => {
           console.log(res);
