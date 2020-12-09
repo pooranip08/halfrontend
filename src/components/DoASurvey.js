@@ -65,7 +65,7 @@ const DoASurvey = () => {
       formData.append(file.name, file);
     });
 
-    formData.append("email", "test1");
+    formData.append("email", survey.data["Email Address"]);
 //added server url
     axios({
       method: "POST",
